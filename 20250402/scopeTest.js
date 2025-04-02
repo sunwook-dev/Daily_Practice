@@ -30,7 +30,56 @@ for (let j = 0; j < 10; j++){
 console.log(j);   //블록 밖에서 선언된 J를 출력
 
 
-
+console.log('=======================');
 
 
 /*********문제2 ************/
+function makeCounter() {
+  let count = 0;
+  
+  function innerMakeCounter() {
+    return count += 1;    
+  }
+  return innerMakeCounter
+}
+
+const counter1 = makeCounter();
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+
+console.log('=======================');
+
+const counter2 = makeCounter();
+console.log(counter2());
+
+
+console.log('=======================');
+
+
+/*********문제3 ************/
+function Shape(name) {
+  //객체 초기화
+  this.name = name;
+}
+
+Shape.prototype.getName = function () {
+  return this.name;
+}
+
+function Triangle(name, base, height) {
+  //객체 초기화
+  this.name = name;
+  this.base = base;
+  this.height = height;
+}
+
+Triangle.prototype = Shape.prototype; 
+
+Triangle.prototype.getArea = function () {
+  return (this.base * this.height) / 2;
+}
+
+const tri = new Triangle("삼각형", 5, 10);
+console.log(tri.getName());
+console.log(tri.getArea());
