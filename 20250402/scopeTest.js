@@ -38,7 +38,7 @@ function makeCounter() {
   let count = 0;
   
   function innerMakeCounter() {
-    return count += 1;    
+    return count++;    
   }
   return innerMakeCounter
 }
@@ -83,3 +83,73 @@ Triangle.prototype.getArea = function () {
 const tri = new Triangle("삼각형", 5, 10);
 console.log(tri.getName());
 console.log(tri.getArea());
+
+
+/////////////////////////////////////////////////////////////////////
+
+// 프로토타입 문제
+// 문제1
+
+// 문제2
+
+// 문제3
+
+function Book(title, author, price) {
+  this.title = title;
+  this.author = author;
+  this.price = price;
+}
+
+Book.prototype.getInfo = function() {
+  return this.title, this.author, this.price;
+}
+
+Book.prototype.setDiscount = function(percent) {
+  //인자로 받은 `percent`(% 할인율)만큼 `price`를 조정한 뒤, 최종 `price`를 반환하세요
+  return this.price + (this.price * percent);
+}
+
+const book1 = new Book("JavaScript 완벽 가이드", "David Flanagan", 50000);
+console.log(book1.getInfo());
+console.log(book1.setDiscount(10));
+
+
+// Todo 항목을 관리할 수 있는 `TodoList` 클래스를 작성하세요.
+
+// - 클래스는 내부에 Todo 항목들을 저장할 배열을 가집니다.
+// - 다음의 메서드를 구현합니다.
+//   - `add(todo)`: 주어진 문자열 `todo`를 리스트에 추가합니다.
+//   - `remove(index)`: 주어진 인덱스의 Todo 항목을 삭제합니다.
+//   - `getTodos()`: 현재의 Todo 항목들을 배열 형태로 반환합니다.
+// - 작성한 클래스를 사용해 몇 가지 Todo 항목을 추가하고, 삭제한 후 최종 리스트를 콘솔에 출력하는 예제 코드를 작성하세요.
+
+class TodoList {
+  date;
+  subject;
+
+  arr = [];
+
+  constructor(date, subject) {
+    this.date = date;
+    this.subject = subject;
+  }  
+
+  add() { 
+    return this.arr.push("todo");
+  }
+
+  remove() {
+    return this.arr.remove()
+  }
+
+  getTodos() {
+    return
+  }
+}
+
+let todoList = new TodoList(50, '스터디하기');
+let todoList2 = new TodoList(40, '대출받기');
+let todoList3 = new TodoList(30, '시험준비하기');
+console.log(todoList.add());
+console.log(todoList);
+
